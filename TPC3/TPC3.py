@@ -1,5 +1,5 @@
 import time,sys,random
-#version 1.0.0
+#version 1.0.5
 
 #Typewriter
 def print_slow(str):
@@ -62,7 +62,7 @@ def main():
     numeroComputador = random.randint(1,100)
     tentativas = int(0)
     vidas = int(3)
-    escolhaMain = str(input("\nEscolha um dos modos de jogo \n 1) Computador adivinha \n 2) Computador adivinha 1-1000 \n 3) Eu adivinho \n 4) Eu adivinho (Difícil)\n 9) Como jogar \n 0) Créditos\n"))
+    escolhaMain = str(input("\nEscolha um dos modos de jogo \n 1) Computador adivinha \n 2) Computador adivinha 1-1000 \n 3) Eu adivinho \n 4) Eu adivinho (Difícil)\n 8) Conclusões \n 9) Como jogar\n 0) Créditos\n"))
     #Computador adivinha
     if escolhaMain == str(1):
         introComputadorAdivinha()
@@ -297,6 +297,20 @@ def main():
                 input("Prima Enter para voltar")
                 main()
         modoTroll()
+    if escolhaMain == str(8):
+        def conclusao():
+            print_slow("\n\nConclusões:")
+            print_slow("\nPara um número entre 1 e 100 o computador precisa, normalmente, no máximo, de 7 tentativas para descobrir o número que o jogador pensou.")
+            print_slow("\n(Por vezes o computador precisa de 8 tentativas devido aos arredondamentos)")
+            print_slow("\nPara um número entre 1 e 1000 o computador precisa, normalmente, no máximo, de 10 tentativas para descobrir o número que o jogador pensou.")
+            print_slow("\n(Por vezes o computador precisa de 11 tentativas devido aos arredondamentos)")
+            print_slow("\nEstes valores não aparecem por acaso. Isto é, 2^7=128 e 2^6=64, 2^6 < 100 < 2^7 o que significa que para um intervalo de 100 números inteiros serão necessários 7 ciclos para chegar aos números \"mais específicos\"")
+            print_slow("\nTal também acontece com 2^10=1024, 2^9 < 1000 < 2^10 , são necessários 10 ciclos para chegar aos números \"mais específicos\"")
+            print_slow("\nO algoritmo utilizado assemelha-se ao algoritmo Quicksort")
+
+            input("\n\nPrima Enter para voltar")
+            main()
+        conclusao()
     #Tutorial
     if escolhaMain == str(9):
         def tutorial():
